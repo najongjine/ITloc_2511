@@ -1,0 +1,26 @@
+* 오전 수업은 typescript, python 기초 원리 입니다.
+* react native expo(핸드폰 앱), react(웹), hono(서버), 
+  postgres db(데이터베이스)
+
+* nodejs 설치 -
+구글가서, nodejs 검색한다음, 윈도우 버전 다운로드 받고, next 눌러서 설치하면 끝
+
+* 윈도우 PowerShell 을 관리자 권한으로 연다음
+명령창에 
+set-executionpolicy Unrestricted
+입력 하고, 모두 예(A) 입력하시면 되요
+(개발자 권한 뚫어주기)
+
+* vs code
+구글가서 vscode 검색하다음 윈도우 버전 받아서 next 눌러서 설치해요
+
+* gitbash
+구글에서 gitbash 윈도우 버전으로 다운받고, next 눌러서 설치해요
+git bash 창에
+git config --global user.name "내깃헙닉네임"
+git config --global user.email "내깃헙이메일"
+입력하고 엔터 쳐줬어요
+
+* vscode에 동그라미 3개
+요놈이 깃허브에 코드 올려주고 다운받는 기능 하는놈이에요
+
