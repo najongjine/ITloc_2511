@@ -23,4 +23,5 @@ git config --global user.email "내깃헙이메일"
 
 * vscode에 동그라미 3개
 요놈이 깃허브에 코드 올려주고 다운받는 기능 하는놈이에요
+commit, pull, push 항상 이 패턴으로 가요
 
