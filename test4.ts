@@ -22,5 +22,5 @@ let mix = [
 ];
 
 // mix의 1번째 서랍 출력해 보세요
-console.log(`mix[1]: `, mix[1]);
-console.log(`mix[1]: ${mix[1]}`);
+console.log(`mix[1]: `, mix[1]); // 어려운 데이터
+console.log(`$mix[1]: ${mix[1]}`); // 쉬운 데이터
