@@ -28,8 +28,28 @@ let jhard1 = {
     year: "1999",
   },
 };
-
+/* 보여주기 */
 console.log(`jhard : `, jhard1);
 console.log(`jhard.name : `, jhard1.name);
 console.log(`jhard.history : `, jhard1.history);
 console.log(`jhard.history.year:`, jhard1.history.year);
+
+// 값 수정
+jhard1.history.year = "2019";
+console.log(`jhard.history.year:`, jhard1.history.year);
+
+/* 대입연산 연습해 봤어요 */
+
+/* 제어 기능 */
+// 타입이 문자열이면 숫자를 문자열로 바꿔서 저장해
+if (typeof jhard1.history.year == "string") {
+  jhard1.history.year = "2019";
+} else {
+  //@ts-ignore
+  jhard1.history.year = 2019;
+}
+
+/* if문의 기본 이론 */
+if (true) {
+  console.log(`if 문에 들어 왔어요~~`);
+}
