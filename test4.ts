@@ -12,3 +12,5 @@ let jobject1 = { name: "홍길동", age: 20 };
 
 console.log(`a:${a}`);
 console.log(`str1:${str1}`);
+console.log(`array1: `, array1);
+console.log(`jobject1: `, jobject1);
