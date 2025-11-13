@@ -56,9 +56,10 @@ if 문 안에 () 는 결국 true, false로 치환되요
 */
 let password = "";
 /* 수학수식에는 + - * / 
-논리연산
+논리연산 -
+true false 얘네를 연산하는 놈이에요
  */
 //@ts-ignore
 if (!password) {
-  console.log(`실행 되요. 얘 0 아니에요`);
+  console.log(`패스워드를 입력해 주세요`);
 }
