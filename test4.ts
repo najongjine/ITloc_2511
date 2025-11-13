@@ -28,3 +28,5 @@ let jhard1 = {
     year: "1999",
   },
 };
+
+console.log(`jhard : `, jhard1);
