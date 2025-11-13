@@ -30,3 +30,4 @@ let jhard1 = {
 };
 
 console.log(`jhard : `, jhard1);
+console.log(`jhard.name : `, jhard1.name);
