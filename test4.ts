@@ -31,3 +31,5 @@ let jhard1 = {
 
 console.log(`jhard : `, jhard1);
 console.log(`jhard.name : `, jhard1.name);
+console.log(`jhard.history : `, jhard1.history);
+console.log(`jhard.history.year:`, jhard1.history.year);
