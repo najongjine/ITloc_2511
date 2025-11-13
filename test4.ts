@@ -49,7 +49,9 @@ if (typeof jhard1.history.year == "string") {
   jhard1.history.year = 2019;
 }
 
-/* if문의 기본 이론 */
-if (true) {
-  console.log(`if 문에 들어 왔어요~~`);
+/* if문의 기본 이론 
+() 안에 들어갈수 있는건 정해져 있어요
+데이터, 수학수식, 함수
+*/
+if (false) {
 }
