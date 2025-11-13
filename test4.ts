@@ -52,6 +52,8 @@ if (typeof jhard1.history.year == "string") {
 /* if문의 기본 이론 
 () 안에 들어갈수 있는건 정해져 있어요
 데이터, 수학수식, 함수
+if 문 안에 () 는 결국 true, false로 치환되요
 */
-if (false) {
+if (1 + 1) {
+  console.log(`실행 되요. 얘 0 아니에요`);
 }
