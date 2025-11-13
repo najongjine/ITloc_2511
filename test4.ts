@@ -54,6 +54,11 @@ if (typeof jhard1.history.year == "string") {
 데이터, 수학수식, 함수
 if 문 안에 () 는 결국 true, false로 치환되요
 */
-if (1 + 1) {
+let password = "";
+/* 수학수식에는 + - * / 
+논리연산
+ */
+//@ts-ignore
+if (!password) {
   console.log(`실행 되요. 얘 0 아니에요`);
 }
