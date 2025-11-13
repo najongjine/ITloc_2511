@@ -21,6 +21,10 @@ let mix = [
   { name: "이순신", age: 30 }, // 1
 ];
 
-// mix의 1번째 서랍 출력해 보세요
-console.log(`mix[1]: `, mix[1]); // 어려운 데이터
-console.log(`$mix[1]: ${mix[1]}`); // 쉬운 데이터
+let jhard1 = {
+  name: "홍길동",
+  history: {
+    job: "야구선수",
+    year: "1999",
+  },
+};
