@@ -40,16 +40,37 @@ C - 79~70
 D - 69~60
 F - 60 미만
 */
-let score = 90;
 
+// if (score >= 90) {
+//   console.log(`A 학점`);
+// } else if (score <= 89 && score >= 80) {
+//   console.log(`B 학점`);
+// } else if (score <= 79 && score >= 70) {
+//   console.log(`C 학점`);
+// } else if (score <= 69 && score >= 60) {
+//   console.log(`D 학점`);
+// } else {
+//   console.log(`F 학점`);
+// }
+let score = 71;
 if (score >= 90) {
   console.log(`A 학점`);
-} else if (score <= 89 && score >= 80) {
+} else if (score >= 80) {
   console.log(`B 학점`);
-} else if (score <= 79 && score >= 70) {
+} else if (score >= 70) {
   console.log(`C 학점`);
-} else if (score <= 69 && score >= 60) {
+} else if (score >= 60) {
   console.log(`D 학점`);
 } else {
   console.log(`F 학점`);
 }
+
+// if (true) {
+// }
+
+// if(true){}
+// else{}
+
+// if(){}
+// else if(){}
+// else {}
