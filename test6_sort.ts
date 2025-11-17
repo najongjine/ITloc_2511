@@ -7,10 +7,13 @@ for()
 && > < ||
  */
 for (let i = 0; i < nums.length; i++) {
-  if (nums[i] > nums[i + 1]) {
-    let temp = nums[i];
-    nums[i] = nums[i + 1];
-    nums[i + 1] = temp;
+  for (let k = 0; k < nums.length; k++) {
+    if (nums[i] > nums[i + 1]) {
+      let temp = nums[i];
+      nums[i] = nums[i + 1];
+      nums[i + 1] = temp;
+    }
   }
 }
+
 console.log(`nums: `, nums);
