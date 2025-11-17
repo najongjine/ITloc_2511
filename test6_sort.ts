@@ -8,10 +8,10 @@ for()
  */
 for (let i = 0; i < nums.length; i++) {
   for (let k = 0; k < nums.length; k++) {
-    if (nums[i] > nums[i + 1]) {
-      let temp = nums[i];
-      nums[i] = nums[i + 1];
-      nums[i + 1] = temp;
+    if (nums[k] > nums[k + 1]) {
+      let temp = nums[k];
+      nums[k] = nums[k + 1];
+      nums[k + 1] = temp;
     }
   }
 }
