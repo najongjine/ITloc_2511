@@ -13,3 +13,4 @@ for (let i = 0; i < nums.length; i++) {
     nums[i + 1] = temp;
   }
 }
+console.log(`nums: `, nums);
