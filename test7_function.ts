@@ -77,3 +77,9 @@ check1 이라는 함수를 만들어 주세요
 username:string 이라는 매개변수를 받고
 매개변수의 값이 홍길동이랑 같으면 true를 리턴해 주세요
  */
+function check1(username: string) {
+  if (username == "홍길동") {
+    return true;
+  }
+  return false;
+}
