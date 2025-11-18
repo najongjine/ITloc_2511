@@ -5,4 +5,6 @@
 - 퉤 뱉어요 (옵션)
  */
 
-function test1() {}
+function test1() {
+  console.log(`함수 test1 이에요 `);
+}
