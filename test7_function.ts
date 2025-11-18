@@ -15,5 +15,8 @@
 function test1() {
   console.log(`함수 test1 이에요 `);
 }
+function test2(x: number) {
+  console.log(`test2가 전달받은 값은 ${x} 에요`);
+}
 
 test1();
