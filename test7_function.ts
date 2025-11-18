@@ -47,3 +47,33 @@ function()
 add1 이라는 함수를 만들어 주세요.
 숫자 2개를 매개변수로 받고, 더한값을 리턴해 주세요
 */
+
+function add1(x: number, y: number) {
+  //let z=x+y;
+  //return z;
+  return x + y;
+}
+
+let r = add1(1, 2);
+console.log(r);
+console.log(add1(1, 2));
+
+for (let i = 0; i < 5; i++) {
+  if (i == 2) {
+    break;
+  }
+  console.log(`i : ${i}`);
+}
+
+for (let j = 0; j < 5; j++) {
+  if (j == 2) {
+    continue;
+  }
+  console.log(`j : ${j}`);
+}
+
+/* 
+check1 이라는 함수를 만들어 주세요
+username:string 이라는 매개변수를 받고
+매개변수의 값이 홍길동이랑 같으면 true를 리턴해 주세요
+ */
