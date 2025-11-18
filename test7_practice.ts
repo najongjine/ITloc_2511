@@ -43,4 +43,6 @@ function top3fish(fishArray: FishType[]) {
       return (b?.weight ?? 0) - (a?.weight ?? 0);
     });
   }
+  console.log(`fishArray: `, fishArray);
 }
+top3fish(fishArray);
