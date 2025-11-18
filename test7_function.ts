@@ -15,9 +15,16 @@
 function test1() {
   console.log(`함수 test1 이에요 `);
 }
+
 function test2(x: number) {
   console.log(`test2가 전달받은 값은 ${x} 에요`);
 }
 
-test1();
-test2(3);
+function test3(name: string, age: number) {
+  let msg = `이름은 :${name}, 나이는: ${age}`;
+  return msg;
+}
+
+//test1();
+//test2(5);
+test3(`홍길동`, 20);
