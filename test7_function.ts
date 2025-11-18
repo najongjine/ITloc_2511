@@ -27,4 +27,23 @@ function test3(name: string, age: number) {
 
 //test1();
 //test2(5);
-test3(`홍길동`, 20);
+let msg = test3(`홍길동`, 20);
+console.log(msg);
+
+let array1 = [5, 1, 3, 9, 99];
+array1 = array1.sort();
+console.log(`array1: `, array1);
+
+/*
+지금까지는 
+* + / % = 
+if()
+for()
+&& || < >
+function()
+ */
+
+/* 
+add1 이라는 함수를 만들어 주세요.
+숫자 2개를 매개변수로 받고, 더한값을 리턴해 주세요
+*/
