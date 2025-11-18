@@ -34,4 +34,11 @@ let fishArray = [fish1, fish2, fish3, fish4, fish5];
  @param fishArray: FishType 타입을 배열로 받아요
  @param fishArray 배열에서 제일 큰 물고기 3마리를 리턴해 주세요.
  */
-function top3fish(fishArray: FishType[]) {}
+// 어려우니깐 제일큰거 한마리 찾기
+function top3fish(fishArray: FishType[]) {
+  for (let index = 1; index < fishArray.length; index++) {
+    //@ts-ignore
+    if (fishArray[index].weight > fishArray[index - 1].weight) {
+    }
+  }
+}
