@@ -37,8 +37,10 @@ let fishArray = [fish1, fish2, fish3, fish4, fish5];
 // 어려우니깐 제일큰거 한마리 찾기
 function top3fish(fishArray: FishType[]) {
   for (let index = 1; index < fishArray.length; index++) {
-    //@ts-ignore
-    if (fishArray[index].weight > fishArray[index - 1].weight) {
-    }
+    fishArray?.sort((a, b) => {
+      // 내림차순 정렬 (Descending Order): b - a
+      // 무게가 더 무거운 물고기(b)가 앞으로 오게 됩니다.
+      return (b?.weight ?? 0) - (a?.weight ?? 0);
+    });
   }
 }
