@@ -20,3 +20,4 @@ function test2(x: number) {
 }
 
 test1();
+test2(3);
