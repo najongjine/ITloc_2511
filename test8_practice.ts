@@ -9,9 +9,12 @@ for (let index = 1; index <= 45; index++) {
 
 /* num2 배열에 1~45 중, 랜덤숫자를 push 해주세요.
 45개의 1~45 랜덤 숫자인데, 조건은 배열에 중복 데이터가 있으면 안되요 */
-let num2: number[] = [];
+let num2: number[] = [1];
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
 }
-console.log(getRandomInt(3));
+let randomNum = getRandomInt(45) + 1;
+let foundNum = num2.find((e) => {
+  return e == randomNum;
+});
 // Expected output: 0, 1 or 2
