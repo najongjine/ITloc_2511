@@ -14,6 +14,11 @@ function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
 }
 let randomNum = getRandomInt(45) + 1;
+for (let i = 0; i < 45; i++) {
+  num2.push(randomNum);
+}
+console.log(`num2: `, num2);
+
 let foundNum = num2.find((e) => {
   return e == randomNum;
 });
