@@ -10,3 +10,8 @@ for (let index = 1; index <= 45; index++) {
 /* num2 배열에 1~45 중, 랜덤숫자를 push 해주세요.
 45개의 1~45 랜덤 숫자인데, 조건은 배열에 중복 데이터가 있으면 안되요 */
 let num2: number[] = [];
+function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max);
+}
+console.log(getRandomInt(3));
+// Expected output: 0, 1 or 2
