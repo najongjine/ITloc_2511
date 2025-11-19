@@ -63,9 +63,24 @@ swap(num1, num2);
 
 let array1 = [1, 2, 3];
 function swapArray(myarray: number[]) {
-  let temp = array1[1];
-  array1[1] = array1[0];
-  array1[0] = temp;
+  let temp = myarray[1];
+  myarray[1] = myarray[0];
+  myarray[0] = temp;
 }
 swapArray(array1);
 console.log(array1);
+
+let tJ = { a: 1, b: 2 };
+function swap3(data: any) {
+  data.a = 2;
+}
+swap3(tJ);
+console.log(`tJ: `, tJ);
+
+/*
+숫자, boolean, string(문자열), char(문자)
+- 자료결합도. 함수에 전달할때, 값을 복사해서 준다
+
+배열, 객체, 포인터
+- Stamp 결합도. 얘네들은 주소를 주기 때문에, 진짜 본체도 값이 바뀐다
+ */
