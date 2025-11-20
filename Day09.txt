@@ -1,0 +1,12 @@
+리엑트 네이티브 expo
+
+* Expo dev 가서 회원 가입하기
+
+
+* https://docs.expo.dev/get-started/set-up-your-environment/?platform=android&device=simulated&mode=development-build
+- 공식문서 보고 환결 설정하기
+
+-환경변수 등록
+ANDROID_HOME
+C:\Users\itg\AppData\Local\Android\Sdk
+C:\Users\itg\AppData\Local\Android\Sdk\platform-tools
