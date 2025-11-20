@@ -10,3 +10,7 @@
 ANDROID_HOME
 C:\Users\itg\AppData\Local\Android\Sdk
 C:\Users\itg\AppData\Local\Android\Sdk\platform-tools
+
+
+
+- React 는 웹 전용이에
