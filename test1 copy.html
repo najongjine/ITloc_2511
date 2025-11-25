@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문서 제목</title>
+  </head>
+  <body>
+    <div>안녕하세요</div>
+    <br />
+    <div>세번째 줄입니다.</div>
+    <div>이건 그 다음줄 입니다.</div>
+    <div>
+      띄 &nbsp;&nbsp;&nbsp; 어 &nbsp;&nbsp;&nbsp;&nbsp;쓰
+      &nbsp;&nbsp;&nbsp;&nbsp;기
+    </div>
+  </body>
+
+  <script type="module">
+    (async () => {
+      // 1. 변경할 `<time>` 요소를 ID를 사용하여 가져옵니다.
+      const timeElement = document.getElementById("time1");
+
+      // 2. 현재 시간 정보를 가져옵니다 (예시: 현재 시스템 시간 사용)
+      const now = new Date();
+
+      // 3. `<time>` 요소에 표시될 내용(innerHTML)을 설정합니다.
+      // 예: '현재 시각: 2025년 11월 20일 오전 11시 23분' (현재 답변 작성 시점 기준)
+      const displayString = `현재 시각: ${now.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      })}`;
+
+      timeElement.innerHTML = displayString;
+
+      // 4. datetime 속성(기계가 읽는 값)을 ISO 8601 형식으로 설정합니다.
+      // 예: '2025-11-20T11:23:56' (현재 답변 작성 시점 기준)
+      const isoTimeString = now.toISOString().substring(0, 16);
+      // T 이후 밀리초(milliseconds) 부분과 Z(Zulu/UTC)를 제외하고 'YYYY-MM-DDTHH:MM' 형식만 남깁니다.
+
+      timeElement.setAttribute("datetime", isoTimeString);
+
+      console.log("시간 정보가 성공적으로 업데이트되었습니다.");
+      console.log("표시 내용:", timeElement.innerHTML);
+      console.log("datetime 값:", timeElement.getAttribute("datetime"));
+    })();
+  </script>
+</html>
