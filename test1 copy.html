@@ -6,7 +6,7 @@
     <title>문서 제목</title>
   </head>
   <body>
-    <div>안녕하세요</div>
+    <div id="div1">안녕하세요</div>
     <br />
     <div>세번째 줄입니다.</div>
     <div>이건 그 다음줄 입니다.</div>
@@ -46,6 +46,9 @@
       console.log("시간 정보가 성공적으로 업데이트되었습니다.");
       console.log("표시 내용:", timeElement.innerHTML);
       console.log("datetime 값:", timeElement.getAttribute("datetime"));
+
+      let div1 = document.getElementById("time1");
+      div1.setHTMLUnsafe("hello");
     })();
   </script>
 </html>
