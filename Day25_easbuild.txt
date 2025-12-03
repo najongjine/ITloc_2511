@@ -1,0 +1,57 @@
+(했으면 skip)
+npm install -g eas-cli
+eas login
+
+
+eas build:configure
+
+
+eas.json 수정 (가장 중요!)
+생성된 eas.json 파일을 열어보면 build 항목이 있습니다. 여기에 **APK 생성을 위한 설정(buildType: "apk")**을 추가해야 합니다.
+
+보통 preview라는 프로필을 만들어 테스트용 APK를 뽑습니다. 아래 코드를 참고해서 수정하세요.
+{
+  "cli": {
+    "version": ">= 7.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk" 
+      }
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
+
+
+빌드 명령어 실행
+eas build -p android --profile preview
+-p android: 안드로이드 플랫폼 지정
+
+--profile preview: eas.json에 작성한 preview 설정을 사용
+
+
+진행 과정 및 다운로드
+명령어를 입력하면 터미널에서 빌드가 시작되고, Expo 대시보드 URL이 표시됩니다.
+
+클라우드에서 빌드가 진행되므로 컴퓨터를 끄거나 터미널을 닫아도 상관없습니다.
+
+빌드가 완료되면:
+
+터미널에 .apk 다운로드 링크가 뜹니다.
+
+Expo 웹 대시보드에서도 다운로드할 수 있습니다.
+
+등록된 이메일로도 링크가 옵니다.
