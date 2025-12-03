@@ -55,3 +55,7 @@ eas build -p android --profile preview
 Expo 웹 대시보드에서도 다운로드할 수 있습니다.
 
 등록된 이메일로도 링크가 옵니다.
+
+
+(만약 git 에러 나면...)
+npx cross-env EAS_NO_VCS=1 eas build -p android --profile preview
