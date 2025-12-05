@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>환영/온보딩 화면</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4A90E2", // Calm Blue
+            "secondary": "#F2F2F7", // Light Gray
+            "accent": "#50E3C2", // Mint Green
+            "text-primary": "#333333", // Dark Gray
+            "text-secondary": "#8A8A8E", // Lighter Gray for placeholders/secondary text
+            "background-light": "#FFFFFF",
+            "background-dark": "#1C1C1E",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem", // 8px
+            "lg": "0.75rem", // 12px
+            "xl": "1rem",   // 16px
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-full min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<main class="flex flex-1 flex-col px-6 pt-24 pb-8">
+<div class="flex flex-col items-center text-center mb-16">
+<div class="mb-4 flex size-20 items-center justify-center rounded-full bg-primary">
+<span class="material-symbols-outlined !text-5xl text-white">local_hospital</span>
+</div>
+<h1 class="text-2xl font-bold text-text-primary dark:text-background-light tracking-tight">메디맵에 오신 것을 환영합니다!</h1>
+<p class="mt-2 text-base text-text-secondary dark:text-gray-400">어디가 아프신가요? <br/>증상에 맞는 진료 과목을 선택해 주세요.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<a class="group flex items-center gap-4 rounded-xl bg-secondary dark:bg-gray-800 p-4 transition-colors hover:bg-primary/10" href="#">
+<div class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-700">
+<span class="material-symbols-outlined text-3xl text-primary">stethoscope</span>
+</div>
+<span class="text-base font-semibold text-text-primary dark:text-background-light">내과</span>
+</a>
+<a class="group flex items-center gap-4 rounded-xl bg-secondary dark:bg-gray-800 p-4 transition-colors hover:bg-primary/10" href="#">
+<div class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-700">
+<span class="material-symbols-outlined text-3xl text-primary">ear_sound</span>
+</div>
+<span class="text-base font-semibold text-text-primary dark:text-background-light">이비인후과</span>
+</a>
+<a class="group flex items-center gap-4 rounded-xl bg-secondary dark:bg-gray-800 p-4 transition-colors hover:bg-primary/10" href="#">
+<div class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-700">
+<span class="material-symbols-outlined text-3xl text-primary">face</span>
+</div>
+<span class="text-base font-semibold text-text-primary dark:text-background-light">피부과</span>
+</a>
+<a class="group flex items-center gap-4 rounded-xl bg-secondary dark:bg-gray-800 p-4 transition-colors hover:bg-primary/10" href="#">
+<div class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-700">
+<span class="material-symbols-outlined text-3xl text-primary">dentistry</span>
+</div>
+<span class="text-base font-semibold text-text-primary dark:text-background-light">치과</span>
+</a>
+<a class="group flex items-center gap-4 rounded-xl bg-secondary dark:bg-gray-800 p-4 transition-colors hover:bg-primary/10" href="#">
+<div class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-700">
+<span class="material-symbols-outlined text-3xl text-primary">orthopedics</span>
+</div>
+<span class="text-base font-semibold text-text-primary dark:text-background-light">정형외과</span>
+</a>
+<a class="group flex items-center gap-4 rounded-xl bg-secondary dark:bg-gray-800 p-4 transition-colors hover:bg-primary/10" href="#">
+<div class="flex size-12 items-center justify-center rounded-lg bg-white dark:bg-gray-700">
+<span class="material-symbols-outlined text-3xl text-primary">ophthalmology</span>
+</div>
+<span class="text-base font-semibold text-text-primary dark:text-background-light">안과</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col space-y-4 pt-8">
+<button class="w-full rounded-xl bg-primary py-4 text-lg font-bold text-white transition-opacity hover:opacity-90">
+        시작하기
+      </button>
+<button class="w-full rounded-xl py-4 text-base font-medium text-text-secondary dark:text-gray-400 transition-colors hover:bg-secondary dark:hover:bg-gray-800">
+        건너뛰기
+      </button>
+</div>
+</main>
+</div>
+
+</body></html>

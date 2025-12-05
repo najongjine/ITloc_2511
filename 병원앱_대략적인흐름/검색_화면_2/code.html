@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>검색 화면</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4A90E2", // Calm Blue
+              "secondary": "#F2F2F7", // Light Gray
+              "accent": "#50E3C2", // Mint Green
+              "text-primary": "#333333", // Dark Gray
+              "text-secondary": "#8A8A8E", // Lighter Gray for placeholders/secondary text
+              "background-light": "#FFFFFF",
+              "background-dark": "#000000",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem", // 8px
+              "lg": "0.75rem", // 12px
+              "xl": "1rem",   // 16px
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center justify-start text-text-primary dark:text-background-light">
+<span class="material-symbols-outlined text-3xl">arrow_back_ios_new</span>
+</div>
+<h2 class="text-text-primary dark:text-background-light text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">검색</h2>
+<div class="flex size-12 shrink-0 items-center"></div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3 sticky top-[72px] bg-background-light dark:bg-background-dark z-10">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-primary flex border-none bg-secondary dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary dark:text-background-light focus:outline-0 focus:ring-0 border-none bg-secondary dark:bg-gray-800 focus:border-none h-full placeholder:text-text-secondary px-4 rounded-l-none pl-2 text-base font-normal leading-normal" placeholder="병원, 진료 과목을 검색해 보세요" value=""/>
+<div class="text-text-secondary dark:text-gray-400 flex border-none bg-secondary dark:bg-gray-800 items-center justify-center pr-4 rounded-r-lg">
+<span class="material-symbols-outlined !text-xl cursor-pointer">cancel</span>
+</div>
+</div>
+</label>
+</div>
+<div class="flex flex-col px-4 pt-4 space-y-8">
+<!-- Recent Searches Section -->
+<div>
+<div class="flex justify-between items-center pb-2">
+<h3 class="text-text-primary dark:text-background-light text-lg font-bold leading-tight tracking-[-0.015em]">최근 검색어</h3>
+<button class="text-text-secondary dark:text-gray-400 text-sm font-medium">전체 삭제</button>
+</div>
+<div class="flex gap-2 pt-2 flex-wrap">
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-secondary dark:bg-gray-800 px-4">
+<p class="text-text-primary dark:text-background-light text-sm font-medium leading-normal">소아과</p>
+<span class="material-symbols-outlined !text-lg text-text-secondary dark:text-gray-400 cursor-pointer">close</span>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-secondary dark:bg-gray-800 px-4">
+<p class="text-text-primary dark:text-background-light text-sm font-medium leading-normal">강남세브란스병원</p>
+<span class="material-symbols-outlined !text-lg text-text-secondary dark:text-gray-400 cursor-pointer">close</span>
+</div>
+<div class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-secondary dark:bg-gray-800 px-4">
+<p class="text-text-primary dark:text-background-light text-sm font-medium leading-normal">치과</p>
+<span class="material-symbols-outlined !text-lg text-text-secondary dark:text-gray-400 cursor-pointer">close</span>
+</div>
+</div>
+<!-- Empty State Example -->
+<!-- 
+                <div class="flex items-center justify-center py-10">
+                    <p class="text-text-secondary dark:text-gray-400">최근 검색 기록이 없습니다.</p>
+                </div>
+                -->
+</div>
+<!-- Popular Specialties Section -->
+<div>
+<h3 class="text-text-primary dark:text-background-light text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">인기 진료 과목</h3>
+<div class="grid grid-cols-4 gap-4 pt-2">
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary !text-4xl">stethoscope</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">내과</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-accent/20 dark:bg-accent/30">
+<span class="material-symbols-outlined text-accent !text-4xl">face</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">피부과</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary !text-4xl">orthopedics</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">정형외과</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-accent/20 dark:bg-accent/30">
+<span class="material-symbols-outlined text-accent !text-4xl">dentistry</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">치과</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary !text-4xl">ophthalmology</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">안과</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-accent/20 dark:bg-accent/30">
+<span class="material-symbols-outlined text-accent !text-4xl">ear_sound</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">이비인후과</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary !text-4xl">child_care</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">소아과</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-2 py-2">
+<div class="flex size-16 items-center justify-center rounded-xl bg-accent/20 dark:bg-accent/30">
+<span class="material-symbols-outlined text-accent !text-4xl">gynecology</span>
+</div>
+<p class="text-text-primary dark:text-background-light text-sm font-medium">산부인과</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>병원 목록 화면</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec80",
+              "background-light": "#f6f8f7",
+              "background-dark": "#102219",
+            },
+            fontFamily: {
+              "display": ["Inter", "Noto Sans KR", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">arrow_back_ios_new</span>
+</div>
+<h1 class="text-gray-900 dark:text-gray-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">주변 병원</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-gray-800 dark:text-gray-200 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">map</span>
+</button>
+</div>
+</header>
+<main class="flex-1">
+<!-- Search Bar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-gray-500 dark:text-gray-400 flex border-none bg-gray-100 dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-900 dark:text-gray-100 focus:outline-0 focus:ring-0 border-none bg-gray-100 dark:bg-gray-800 focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="병원 이름, 진료 과목 검색" value=""/>
+</div>
+</label>
+</div>
+<!-- Chips -->
+<div class="flex gap-2 p-3 overflow-x-auto whitespace-nowrap">
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-primary/20 dark:bg-primary/30 px-3">
+<span class="material-symbols-outlined text-sm text-gray-800 dark:text-gray-200">swap_vert</span>
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">거리순</p>
+<span class="material-symbols-outlined text-sm text-gray-800 dark:text-gray-200">expand_more</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-gray-100 dark:bg-gray-800 px-3">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">진료과</p>
+<span class="material-symbols-outlined text-sm text-gray-800 dark:text-gray-200">expand_more</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-gray-100 dark:bg-gray-800 px-3">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">진료중</p>
+<span class="material-symbols-outlined text-sm text-gray-800 dark:text-gray-200">expand_more</span>
+</button>
+</div>
+<!-- Hospital List -->
+<div class="flex flex-col">
+<!-- List Item 1 -->
+<div class="flex gap-4 bg-background-light dark:bg-background-dark px-4 py-3 justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Image of Seoul Yonsei Hospital" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAiAKq0JFKoP_YqiCkhcYmiixc8YPwPxpcGxA8jvBDpxis7LltQyscpvcHPjYaUd8ck-qVlAshISanxf5R2gBBtappOfh1_g5KhnlBtIsXIrsjx9k_E1a1W8psdWrJP6eHROkkOyH1JGIOhPNPfmDjsRVyk0R2kiWlNkFfdiGYuYZoXLJckuB-R9p-7AcMWTmGla4RvbMip9xYPIOxBLgvPbTNC2InRgFIMpEPkPD1h_Nqo80P4DODtYmwtPJMib1kvKtO8uDFQEwj");'></div>
+<div class="flex flex-1 flex-col justify-center gap-0.5">
+<p class="text-gray-900 dark:text-gray-100 text-base font-bold leading-normal">서울연세병원</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">4.8 (125)</p>
+<span class="text-gray-300 dark:text-gray-600">·</span>
+<p class="text-green-600 dark:text-green-400 text-sm font-medium leading-normal">진료중</p>
+</div>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">내과 · 250m</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-gray-500 dark:text-gray-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">bookmark_border</span>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex gap-4 bg-background-light dark:bg-background-dark px-4 py-3 justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Image of Tunteun Pediatrics Clinic" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXgI_a6YBLH1AEedNmoMJlZo4ALJmev0cvBSU9iTvwr9aubV6bHDqc1mErkxqs10O8f7Hd0p6H8e2Jo-O42K1CLzJN4z11gGNBXeicBNGA4OmT5BKOSPOqM835VADVT4Gx5lDbRwM55ZS1nms0JldKq3xjpbHhOY5VLwgNaEqXzxMksCtkkk3_FywQ0P8g3_X2oayReSSYMuZw0PxZrDGIgwCP5VXbGB-3IPh6_370GO_6eArdYxIx3n_2W0X8-XhmHxu229hV-RO9");'></div>
+<div class="flex flex-1 flex-col justify-center gap-0.5">
+<p class="text-gray-900 dark:text-gray-100 text-base font-bold leading-normal">튼튼소아청소년과</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">4.9 (210)</p>
+<span class="text-gray-300 dark:text-gray-600">·</span>
+<p class="text-green-600 dark:text-green-400 text-sm font-medium leading-normal">진료중</p>
+</div>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">소아청소년과 · 400m</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-primary flex size-7 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex gap-4 bg-background-light dark:bg-background-dark px-4 py-3 justify-between border-b border-gray-200 dark:border-gray-800">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Image of Beautiful Skin Dermatology" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqsP-l2a67km2KvL3qQvZ1raj8ODpS8XtSVZCPeLJ_opbNh0CmbHTr11Eh3GmhZgripWM4uCMtM_2YMLyXeRK8WxHw49p7CS11btQNzWAoTAX5zy1iEtV4v_47kVrVMZWG86U1EFP0YMBKJ6hbLLGPs5Gue-ek2t9Y1cHpES5tlP8faumWpjH_VQdvdL_AFQTHKuM7nRNEq1IubGy3ZmV_Nah306XxAwNg_9J2cpEkUiKnI7nZuq4MLlsk7QNgxhyyF20QBEQwiYpi");'></div>
+<div class="flex flex-1 flex-col justify-center gap-0.5">
+<p class="text-gray-900 dark:text-gray-100 text-base font-bold leading-normal">아름다운피부과의원</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">4.7 (88)</p>
+<span class="text-gray-300 dark:text-gray-600">·</span>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">진료종료</p>
+</div>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">피부과 · 1.2km</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-gray-500 dark:text-gray-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">bookmark_border</span>
+</div>
+</div>
+</div>
+<!-- List Item 4 -->
+<div class="flex gap-4 bg-background-light dark:bg-background-dark px-4 py-3 justify-between">
+<div class="flex items-start gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-[70px]" data-alt="Image of Gwanghwamun Orthopedics" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDh6rShUC1vXnN_NZUMDplDhFt4ufbyg6MeEuzq7ibFyk5Zh5jC92tx_Kvu8NSDeSY5A-AJDUgKXOFeOMehJ_pknCGWcapOBU8ohvifhv-rWlANNi42O-OZxnHIGjLrv2KZmFFT7fvj5XhRKsTfXQPE-u9UjibiefaD6bwtERqaBDRga9ufgndh14kvzG4AIbnmy2zYPqvd1AmkRao7tFWpv8LjMMA5Q5ZhwDOZDFU6l22aREqi5pcomQ_u9kFK2rAk3WwylPcLNwbz");'></div>
+<div class="flex flex-1 flex-col justify-center gap-0.5">
+<p class="text-gray-900 dark:text-gray-100 text-base font-bold leading-normal">광화문정형외과의원</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">4.6 (150)</p>
+<span class="text-gray-300 dark:text-gray-600">·</span>
+<p class="text-green-600 dark:text-green-400 text-sm font-medium leading-normal">진료중</p>
+</div>
+<p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">정형외과 · 1.5km</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-gray-500 dark:text-gray-400 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined">bookmark_border</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

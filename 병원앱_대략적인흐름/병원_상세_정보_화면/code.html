@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>병원 상세 정보 화면</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400,FILL@0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13ec80",
+            "background-light": "#f6f8f7",
+            "background-dark": "#102219",
+          },
+          fontFamily: {
+            "display": ["Inter", "Noto Sans KR", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111814] dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined text-2xl text-[#111814] dark:text-white">arrow_back_ios_new</span>
+</div>
+<h2 class="text-[#111814] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">병원 정보</h2>
+<div class="flex w-12 items-center justify-end gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111814] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">bookmark_border</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-[#111814] dark:text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">ios_share</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col px-4 pt-4 pb-2">
+<!-- Headline Text -->
+<h1 class="text-[#111814] dark:text-white tracking-tight text-[32px] font-bold leading-tight text-left">서울중앙병원</h1>
+<!-- Chips -->
+<div class="flex gap-2 pt-3 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/20 pl-4 pr-4">
+<p class="text-[#111814] dark:text-white text-sm font-medium leading-normal">종합병원</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-green-500/20 pl-4 pr-4">
+<p class="text-green-600 dark:text-green-400 text-sm font-medium leading-normal">진료중</p>
+</div>
+</div>
+</div>
+<!-- Button Group -->
+<div class="flex justify-stretch">
+<div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-between">
+<button class="flex flex-1 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-[#111814] text-base font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined">call</span>
+<span class="truncate">전화 걸기</span>
+</button>
+<button class="flex flex-1 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-gray-200 dark:bg-gray-700 text-[#111814] dark:text-white text-base font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined">near_me</span>
+<span class="truncate">길찾기</span>
+</button>
+</div>
+</div>
+<div class="w-full h-2 bg-gray-100 dark:bg-gray-800 my-4"></div>
+<!-- Information List -->
+<div class="flex flex-col gap-2 px-4">
+<!-- Address Item -->
+<div class="flex items-center gap-4 bg-transparent min-h-[72px] py-2">
+<div class="text-[#111814] dark:text-white flex items-center justify-center rounded-lg bg-gray-200 dark:bg-gray-700 shrink-0 size-12">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111814] dark:text-white text-base font-medium leading-normal line-clamp-1">주소</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">서울특별시 강남구 테헤란로 123 서울중앙병원</p>
+</div>
+</div>
+<!-- Opening Hours Item -->
+<div class="flex items-start gap-4 bg-transparent min-h-[72px] py-2">
+<div class="text-[#111814] dark:text-white flex items-center justify-center rounded-lg bg-gray-200 dark:bg-gray-700 shrink-0 size-12 mt-1">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111814] dark:text-white text-base font-medium leading-normal line-clamp-1">진료 시간</p>
+<div class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">
+<p>월-금: 09:00 - 18:00</p>
+<p>토요일: 09:00 - 13:00</p>
+<p>점심시간: 12:30 - 14:00</p>
+<p class="text-red-500">일요일 및 공휴일 휴진</p>
+</div>
+</div>
+</div>
+<!-- Phone Number Item -->
+<div class="flex items-center gap-4 bg-transparent min-h-[72px] py-2">
+<div class="text-[#111814] dark:text-white flex items-center justify-center rounded-lg bg-gray-200 dark:bg-gray-700 shrink-0 size-12">
+<span class="material-symbols-outlined">phone_in_talk</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#111814] dark:text-white text-base font-medium leading-normal line-clamp-1">연락처</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">02-1234-5678</p>
+</div>
+</div>
+</div>
+<div class="w-full h-2 bg-gray-100 dark:bg-gray-800 my-4"></div>
+<!-- Medical Departments -->
+<div class="flex flex-col gap-3 px-4 py-2">
+<h3 class="text-[#111814] dark:text-white text-lg font-bold">진료 과목</h3>
+<div class="flex gap-2 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-700 px-4">
+<p class="text-[#111814] dark:text-white text-sm font-medium leading-normal">내과</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-700 px-4">
+<p class="text-[#111814] dark:text-white text-sm font-medium leading-normal">외과</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-700 px-4">
+<p class="text-[#111814] dark:text-white text-sm font-medium leading-normal">소아청소년과</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-700 px-4">
+<p class="text-[#111814] dark:text-white text-sm font-medium leading-normal">이비인후과</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-gray-700 px-4">
+<p class="text-[#111814] dark:text-white text-sm font-medium leading-normal">정형외과</p>
+</div>
+</div>
+</div>
+<!-- Map View -->
+<div class="px-4 pt-6 pb-8">
+<div class="aspect-video w-full overflow-hidden rounded-xl bg-gray-200 dark:bg-gray-700">
+<img alt="A simplified map view showing a pin for Seoul Central Hospital located in Gangnam-gu, Seoul." class="h-full w-full object-cover" data-location="Seoul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAobzj183F6J1n0UnuOUYpC0q2V9jX44dgjEQoBrih0wavl4SkA-jDA3Dk7IhBEpNOpwSob8QiCN8Y5CQwGNJ4N6DOplkjbnPF8HWR3V8ZxtVLcLSOODhPYSaxZs-8L98LpbNPIXO4PJb141OW9RIGjUO7saSjwarkCQaNeUAKuH2qUvh_6kL15xRnKUrneiXHkYgmU7oKUwxJLKaGXe8773EtboyW_ynjl0TgxEdKJgi5589pOgY-zz7RTDWwF6Z6TP8FexsnbSMEM"/>
+</div>
+</div>
+</div>
+</body></html>
