@@ -1,0 +1,11 @@
+Postman-
+서버 rest api 테스트를 쉽게 해주는 놈입니다
+
+https://developers.kakao.com/docs/latest/ko/local/dev-guide
+-키워드로 장소 검색
+Method : GET
+URL: https://dapi.kakao.com/v2/local/search/keyword
+인증 방식: REST API 키 (카카오 개발자 계정으로 받은 비밀키)
+상세설명: 질의어에 매칭된 장소 검색 결과를 지정된 정렬 기준에 따라 제공합니다. 현재 위치 좌표, 반경 제한, 정렬 옵션, 페이징 등의 기능으로 원하는 결과를 요청 할 수 있습니다.
+
+헤더: Authorization: KakaoAK ${REST_API_KEY}
