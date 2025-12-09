@@ -29,3 +29,7 @@ nodejs hono가 middle 웨어가 되는것이고
 
 사용자와 하둡시스템을 db를 사용해서 데이터를 주고받게 했으면
 이때는 db가 미들웨어가 되는 것이다
+
+
+Nodejs hono typescript 생성 명령어-
+npm create hono@latest itloc_hospital_2511
