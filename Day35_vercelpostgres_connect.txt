@@ -1,6 +1,7 @@
 npm install hono @neondatabase/serverless
 npm install --save-dev @types/node
 
+http://localhost:3000/api/test/db_select_test?id=10002958
 
 https://gall.dcinside.com/mgallery/board/view/?id=thesingularity&no=910405&exception_mode=recommend&page=1
 - 최근 구글 대표님의 인터뷰
