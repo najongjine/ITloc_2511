@@ -1,0 +1,2 @@
+npm install hono @neondatabase/serverless
+npm install --save-dev @types/node
