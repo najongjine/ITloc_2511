@@ -1,0 +1,8 @@
+1. 허깅페이스 계정 준비하기
+2. python/academy 폴더 만들고
+git clone https://huggingface.co/spaces/WildOjisan/hospital_reco_hf_2511
+clone 하기
+
+3. 내 huggingface 계정에서 hospital_reco_hf_2511 space 만들기
+4. academy 에 clone 해놓은 코스코드, 내 hospital_reco_hf_2511 여기에 옮기기
+5. push 하기
