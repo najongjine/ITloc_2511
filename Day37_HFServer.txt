@@ -9,17 +9,6 @@ clone 하기
 
 
 
-[
-    {
-        "id":1,
-        "distance_m":100,
-        "rating":2,
-        "congestion_level":3
-    },
-    {
-        "id":2,
-        "distance_m":100,
-        "rating":2,
-        "congestion_level":1
-    }
-]
+params
+x 126.8101
+y 35.1746
