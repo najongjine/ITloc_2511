@@ -6,3 +6,20 @@ clone 하기
 3. 내 huggingface 계정에서 hospital_reco_hf_2511 space 만들기
 4. academy 에 clone 해놓은 코스코드, 내 hospital_reco_hf_2511 여기에 옮기기
 5. push 하기
+
+
+
+[
+    {
+        "id":1,
+        "distance_m":100,
+        "rating":2,
+        "congestion_level":3
+    },
+    {
+        "id":2,
+        "distance_m":100,
+        "rating":2,
+        "congestion_level":1
+    }
+]
