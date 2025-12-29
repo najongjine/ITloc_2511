@@ -1,6 +1,11 @@
 # py -3.11 -m pip install uv
 # py -3.11 -m uv venv venv
 # uv pip install scikit-learn numpy matplotlib
+"""
+py -3.11 -m uv venv venv
+
+.\venv\Scripts\Activate.ps1
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
