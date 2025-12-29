@@ -56,3 +56,14 @@ plt.ylabel('Score')
 plt.legend()
 plt.grid(True)
 plt.show()
+
+# ... (위쪽 훈련 코드 그대로 유지) ...
+
+# 5. 모델 저장 (Model Saving)
+# joblib은 사이킷런 모델을 파일로 저장할 때 쓰는 표준 라이브러리입니다.
+import joblib
+
+# 모델을 'my_model.pkl'이라는 이름의 파일로 박제합니다.
+joblib.dump(model, 'study_linear_reg.pkl') 
+
+print("모델 저장이 완료되었습니다: study_linear_reg.pkl")
