@@ -1,4 +1,5 @@
-# pip install scikit-learn numpy matplotlib
+# py -3.11 -m pip install uv
+# uv pip install scikit-learn numpy matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
