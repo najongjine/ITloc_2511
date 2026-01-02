@@ -1,0 +1,28 @@
+판매 글 자동 생성 (Generative AI)
+
+기능: "아이폰 13, 상태 좋음, 박스 있음"이라고 대충만 적어도, LLM이 "소중히 사용한 아이폰 13 풀박스 판매합니다. 생활 기스 거의 없고..." 처럼 매력적인 판매 문구를 작성해 줍니다.
+
+기술: OpenAI API, Anthropic API, 또는 로컬 LLM (Gemma, Llama 등) 서빙.
+
+
+시맨틱 검색 (Semantic Search)
+
+기능: 사용자가 "캠핑 갈 때 쓸만한 거"라고 검색해도 '텐트', '캠핑 의자', '버너' 등의 상품이 검색되도록 합니다. (키워드가 일치하지 않아도 의미로 검색)
+
+기술: Sentence-BERT 등으로 텍스트를 벡터화(Embedding)한 뒤, FAISS나 Vector DB(Pinecone, Chroma)로 유사도 검색.
+
+
+
+이미지로 상품 검색
+
+기능: 마음에 드는 옷 사진을 올리면, 내 동네에서 판매 중인 비슷한 스타일의 옷을 찾아줍니다.
+
+기술: CNN 기반 모델로 Feature Extraction 후 벡터 검색.
+
+
+
+개인화 추천 시스템
+
+기능: 사용자가 클릭한 상품 데이터를 기반으로 좋아할 만한 물건을 메인 화면에 띄워줍니다.
+
+기술: 협업 필터링(Collaborative Filtering) 혹은 YouTube DNN 방식. 데이터가 적다면 콘텐츠 기반 필터링(Content-based Filtering)으로 시작.
