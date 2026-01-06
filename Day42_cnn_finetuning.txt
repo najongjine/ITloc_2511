@@ -9,3 +9,6 @@ https://colab.research.google.com/drive/1hTxwvSkf0mEdgElJxoKuxCSSWjm3FpeQ?usp=sh
 
 https://colab.research.google.com/drive/1eKeN0GoZ1Ny8eejY7YUuBqavWudgtEmp?usp=sharing
 - 식물 병충해
+- 예측할땐 머핀 vs 치와와 예측 코드 고대로 쓰면 되는데,
+efficientnet_b0_plantdisease 
+모델 이름만 바꿔주면 되요
