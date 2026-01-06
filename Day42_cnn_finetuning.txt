@@ -27,3 +27,8 @@ efficientnet_b0_plantdisease
 3. 모델 훈련했던 코드도 GPT한테 주세요. 그래야 얘가 하이퍼 파마메터를 알수 있어요
 4. 필요한 정보 다 포함한 상태에서 python fast api endpoint 로 만들어줘
 하면 얘가 코드 줄꺼에요
+
+
+
+https://itsec-react-2509.vercel.app/imgtest
+- 재가 만든 cnn 모델 테스트 하는 페이지
