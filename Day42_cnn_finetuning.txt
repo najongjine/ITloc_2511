@@ -1,2 +1,6 @@
 https://colab.research.google.com/drive/1fWM-z31mYR0SHRwKE26h48Sd1X4rs-ZA?usp=sharing
 - 머핀 vs 치와와
+
+
+https://colab.research.google.com/drive/1hTxwvSkf0mEdgElJxoKuxCSSWjm3FpeQ?usp=sharing
+- 머핀 vs 치와와 모델 사용
