@@ -5,6 +5,87 @@ input.txt 올리기
 모두실행 클릭
 
 
+
+# --------훈련 안 된 모델 (쌩으로 돌리기)-------
+
+
+import torch
+import torch.nn.functional as F
+import tiktoken
+
+# 1. 토크나이저 준비
+enc = tiktoken.get_encoding("cl100k_base")
+
+# 2. 문장 생성 함수 (Generate)
+def generate(model, start_text, max_new_tokens=50, temperature=1.0):
+    model.eval()
+    # 입력 텍스트 -> 토큰 ID 변환
+    start_ids = enc.encode(start_text)
+    idx = torch.tensor(start_ids, dtype=torch.long, device=config.device).unsqueeze(0)
+
+    print(f"입력: {start_text}")
+    print("-" * 30)
+
+    for _ in range(max_new_tokens):
+        # context window(block_size)를 넘지 않게 자르기
+        idx_cond = idx if idx.size(1) <= config.block_size else idx[:, -config.block_size:]
+        
+        # 모델 예측
+        logits, _ = model(idx_cond)
+        logits = logits[:, -1, :] / temperature
+        probs = F.softmax(logits, dim=-1)
+        
+        # 샘플링
+        idx_next = torch.multinomial(probs, num_samples=1)
+        idx = torch.cat((idx, idx_next), dim=1)
+
+    return enc.decode(idx[0].tolist())
+
+# --- 실행 부분 ---
+print("🔵 [Scenario 1] 훈련되지 않은 Raw 모델 실행 중...")
+
+# 모델 초기화 (랜덤 가중치)
+raw_model = GPT().to(config.device)
+
+# 생성 테스트
+output = generate(raw_model, "Hello", max_new_tokens=30)
+print(f"결과: {output}")
+
+# --------훈련 안 된 모델 (쌩으로 돌리기) END ------- 
+
+
+
+
+# --- 훈련된 모델 불러와서 돌리기 ---
+
+import os
+from google.colab import drive
+
+# --- 실행 부분 ---
+print("🟠 [Scenario 2] 구글 드라이브에서 학습된 모델 불러오기...")
+
+# 1. 구글 드라이브 마운트
+drive.mount('/content/drive')
+
+# 2. 모델 초기화 및 가중치 로드
+save_path = '/content/drive/MyDrive/My_GPT_Models/gpt2_small_custom.pth' # 저장했던 경로 확인
+
+if os.path.exists(save_path):
+    trained_model = GPT().to(config.device)
+    
+    # 저장된 가중치 덮어쓰기
+    trained_model.load_state_dict(torch.load(save_path, map_location=config.device))
+    print("✅ 모델 로드 성공!")
+    
+    # 3. 생성 테스트
+    output = generate(trained_model, "who are you?", max_new_tokens=50) # 위에서 정의한 generate 함수 재사용
+    print(f"결과: {output}")
+else:
+    print(f"❌ 파일이 없습니다. 경로를 확인해주세요: {save_path}")
+
+# --- 훈련된 모델 불러와서 돌리기 END ---
+
+
 ==============================
    🚀 X-Ray 진단 모드 실행   
 ==============================
