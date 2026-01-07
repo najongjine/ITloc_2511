@@ -1,0 +1,2 @@
+https://colab.research.google.com/drive/19XYbgDLlHNpTj7bNiK-gcYwZAnMuq_qC?usp=sharing
+- GPT 만들기 실습
