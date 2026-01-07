@@ -6,6 +6,11 @@ input.txt 올리기
 
 
 
+https://colab.research.google.com/drive/1_2nK8fHQc5uUkfWVRl0zrDfGTOwh6fCq?usp=sharing
+- 우리가 찔끔 학습시킨 모델 사용해보기
+
+
+
 # --------훈련 안 된 모델 (쌩으로 돌리기)-------
 
 
