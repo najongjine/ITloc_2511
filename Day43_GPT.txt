@@ -1,2 +1,5 @@
 https://colab.research.google.com/drive/19XYbgDLlHNpTj7bNiK-gcYwZAnMuq_qC?usp=sharing
 - GPT 만들기 실습
+colab 런타임 T4,
+input.txt 올리기
+모두실행 클릭
