@@ -95,3 +95,16 @@ CREATE TABLE t_item_like (
 );
 
 COMMENT ON TABLE t_item_like IS '관심 상품(찜하기) 목록';
+
+
+
+
+CREATE EXTENSION IF NOT EXISTS vector;   -- 시맨틱 검색용
+-- 2. 컬럼 추가 (EmbeddingGemma-300m 기준 768차원)
+ALTER TABLE t_item ADD COLUMN embedding vector(768);
+
+-- 3. 설명 추가
+COMMENT ON COLUMN t_item.embedding IS 'EmbeddingGemma-300m 벡터 (768차원)';
+
+-- 4. 검색 속도를 위한 HNSW 인덱스 생성
+CREATE INDEX idx_item_embedding ON t_item USING hnsw (embedding vector_cosine_ops);
