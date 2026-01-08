@@ -1,0 +1,97 @@
+CREATE EXTENSION IF NOT EXISTS postgis;
+
+-- 1. 사용자 테이블 (t_user)
+CREATE TABLE t_user (
+    id              SERIAL PRIMARY KEY,          -- 사용자 고유 ID (Auto Increment)
+    nickname        VARCHAR DEFAULT '',           -- 닉네임
+    phone_number    VARCHAR DEFAULT '',    -- 전화번호 (로그인 식별자, 중복 불가)
+    profile_img     TEXT DEFAULT '',                           -- 프로필 이미지 URL
+    addr          VARCHAR DEFAULT '',                   -- 활동 지역 (예: 서울 강남구 역삼동)
+    geo_point       GEOMETRY(Point, 4326), 
+    long               DOUBLE PRECISION DEFAULT 0,               -- 경도 (Longitude) 예: 127.xxxx
+    lat               DOUBLE PRECISION DEFAULT 0,               -- 위도 (Latitude)  예: 37.xxxx
+    
+    created_dt      TIMESTAMPTZ DEFAULT NOW(),      -- 가입일
+    updated_dt      TIMESTAMPTZ DEFAULT NOW()      -- 수정일
+);
+
+COMMENT ON TABLE t_user IS '사용자 정보';
+CREATE INDEX idx_user_geo ON t_user USING GIST (geo_point);
+
+-- 1. 카테고리 테이블 (새로 생성)
+CREATE TABLE t_category (
+    id          SERIAL PRIMARY KEY,
+    name        VARCHAR DEFAULT '',       -- 카테고리명 (예: 디지털기기, 생활가전)
+    order_no    INTEGER DEFAULT 0           -- 노출 순서 관리용
+);
+
+-- 2. 상품 테이블 (t_item)
+-- category 컬럼을 삭제하고 category_id FK로 교체했습니다.
+CREATE TABLE t_item (
+    id              SERIAL PRIMARY KEY,
+    user_id         INTEGER NOT NULL,               -- ★ t_user가 SERIAL이므로 여기도 INTEGER
+    category_id     INTEGER NOT NULL,               -- ★ 카테고리 테이블 참조 (FK)
+    
+    title           VARCHAR NOT NULL,
+    content         VARCHAR DEFAULT '',
+    price           INTEGER DEFAULT 0,
+    status          VARCHAR(20) DEFAULT 'sale',  -- 판매상태
+    
+    -- 위치 정보 (아까 혼난 거 반영해서 PostGIS 타입으로 넣었습니다)
+    -- 상품마다 거래 희망 장소가 다를 수 있으니까요.
+    geo_point       GEOMETRY(Point, 4326),          
+    addr     VARCHAR DEFAULT '',          -- 표시용 동네 이름 (예: 역삼동)
+
+    created_at      TIMESTAMPTZ DEFAULT NOW(),
+    updated_at      TIMESTAMPTZ DEFAULT NOW(),
+
+    -- 제약 조건 설정
+    CONSTRAINT fk_item_user FOREIGN KEY (user_id) REFERENCES t_user (id) ON DELETE CASCADE,
+    CONSTRAINT fk_item_category FOREIGN KEY (category_id) REFERENCES t_category (id)
+);
+
+-- 인덱스: 카테고리별로 상품 목록을 조회할 때 필수입니다.
+COMMENT ON COLUMN t_item.status IS 'sale=판매중, close=판매종료';
+CREATE INDEX idx_item_category ON t_item(category_id);
+-- 인덱스: 위치 기반 조회용 (필수)
+CREATE INDEX idx_item_geo ON t_item USING GIST (geo_point);
+
+-- 3. 상품 이미지 테이블 (t_item_img)
+CREATE TABLE t_item_img (
+    id              SERIAL PRIMARY KEY,
+    item_id         INTEGER NOT NULL,                -- 상품 ID (FK)
+    img_url         VARCHAR NOT NULL,                  -- 이미지 경로
+    created_dt      TIMESTAMPTZ DEFAULT NOW(),
+    CONSTRAINT fk_img_item FOREIGN KEY (item_id) REFERENCES t_item (id) ON DELETE CASCADE
+);
+
+COMMENT ON TABLE t_item_img IS '상품에 첨부된 이미지';
+
+-- 4. 상품 댓글 테이블 (t_item_comment)
+-- 참고: 당근마켓은 주로 1:1 채팅을 쓰지만, 게시글 댓글 기능 요청에 따라 작성
+CREATE TABLE t_item_comment (
+    id              SERIAL PRIMARY KEY,
+    item_id         INTEGER NOT NULL,                -- 상품 ID (FK)
+    user_id         INTEGER NOT NULL,                -- 댓글 작성자 ID (FK)
+    content         TEXT NOT NULL,                  -- 댓글 내용
+    created_dt      TIMESTAMPTZ DEFAULT NOW(),
+    updated_dt      TIMESTAMPTZ DEFAULT NOW(),
+
+    CONSTRAINT fk_comment_item FOREIGN KEY (item_id) REFERENCES t_item (id) ON DELETE CASCADE,
+    CONSTRAINT fk_comment_user FOREIGN KEY (user_id) REFERENCES t_user (id) ON DELETE CASCADE
+);
+
+COMMENT ON TABLE t_item_comment IS '상품 게시글 댓글';
+
+-- 5. 관심 상품(찜/좋아요) 테이블 (t_item_like)
+CREATE TABLE t_item_like (
+    id              SERIAL PRIMARY KEY,
+    user_id         INTEGER NOT NULL,
+    item_id         INTEGER NOT NULL,
+    created_dt      TIMESTAMPTZ DEFAULT NOW(),
+    CONSTRAINT fk_like_user FOREIGN KEY (user_id) REFERENCES t_user (id) ON DELETE CASCADE,
+    CONSTRAINT fk_like_item FOREIGN KEY (item_id) REFERENCES t_item (id) ON DELETE CASCADE,
+    CONSTRAINT uq_user_item_like UNIQUE (user_id, item_id) -- 한 유저는 한 상품에 한 번만 좋아요 가능
+);
+
+COMMENT ON TABLE t_item_like IS '관심 상품(찜하기) 목록';
