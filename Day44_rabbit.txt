@@ -1,0 +1,103 @@
+long, lati 받으면
+이걸 한국주소로 변환 합시다
+
+import { serve } from '@hono/node-server';
+import { Hono } from 'hono';
+
+// 1. 카카오 API 응답 타입 정의 (제공해주신 JSON 기준)
+interface KakaoAddressResponse {
+  meta: {
+    total_count: number;
+  };
+  documents: {
+    road_address: {
+      address_name: string;
+      region_1depth_name: string;
+      region_2depth_name: string;
+      region_3depth_name: string;
+      road_name: string;
+      underground_yn: string;
+      main_building_no: string;
+      sub_building_no: string;
+      building_name: string;
+      zone_no: string;
+    } | null;
+    address: {
+      address_name: string;
+      region_1depth_name: string;
+      region_2depth_name: string;
+      region_3depth_name: string;
+      mountain_yn: string;
+      main_address_no: string;
+      sub_address_no: string;
+    } | null;
+  }[];
+}
+
+const app = new Hono();
+
+// 카카오 REST API 키 (보안을 위해 환경변수로 관리하는 것을 추천합니다)
+// 예: process.env.KAKAO_REST_API_KEY
+const KAKAO_API_KEY = "본인의_REST_API_키를_여기에_입력하세요"; 
+
+app.get('/coord-to-address', async (c) => {
+  // 2. 쿼리 파라미터에서 x(경도), y(위도) 가져오기
+  const x = c.req.query('x');
+  const y = c.req.query('y');
+
+  // 유효성 검사
+  if (!x || !y) {
+    return c.json({ error: 'x(경도)와 y(위도) 파라미터가 필요합니다.' }, 400);
+  }
+
+  try {
+    // 3. 카카오 API 호출 URL 생성
+    const params = new URLSearchParams({
+      x: x,
+      y: y,
+      input_coord: 'WGS84', // 기본값이지만 명시적으로 지정
+    });
+    
+    const url = `https://dapi.kakao.com/v2/local/geo/coord2address.json?${params.toString()}`;
+
+    // 4. fetch로 API 요청
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        // 주의: 'KakaoAK ' 뒤에 공백이 한 칸 있어야 합니다.
+        "Authorization": `KakaoAK ${KAKAO_API_KEY}`, 
+        "Content-Type": "application/json"
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Kakao API Error: ${response.status} ${response.statusText}`);
+    }
+
+    // 5. 응답 데이터를 타입에 맞춰 파싱
+    const data = await response.json() as KakaoAddressResponse;
+
+    // 결과 반환
+    return c.json(data);
+
+  } catch (error) {
+    console.error(error);
+    return c.json({ error: '주소 변환 중 오류가 발생했습니다.' }, 500);
+  }
+});
+
+// 서버 실행
+const port = 3000;
+console.log(`Server is running on port ${port}`);
+
+serve({
+  fetch: app.fetch,
+  port
+});
+
+------------
+
+
+
+프로파일 이미지 주면, imgbb 에 올리고
+안주면 안올리고
