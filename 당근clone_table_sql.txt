@@ -111,6 +111,10 @@ CREATE INDEX idx_item_embedding ON t_item USING hnsw (embedding vector_cosine_op
 
 
 
+ALTER TABLE t_user
+ADD COLUMN username VARCHAR DEFAULT '';
+ALTER TABLE t_user
+ADD COLUMN password VARCHAR DEFAULT '';
 
 
 
